@@ -4,13 +4,16 @@ html, body {
 }
 
 :root {
-  --c-fondo: #0f172a;
-  --c-texto: #e5e7eb;
-  --c-secundario: #94a3b8;
-  --c-primario: #4f46e5;
-  --c-alerta: #ef4444;
-  --c-card: #0b1220;
-  --ff-base: Arial
+  --c-fondo: #faf7f2;
+  --c-oscuro: #241a12;
+  --c-texto: #2c2117;
+  --c-texto-claro: #f5ede0;
+  --c-secundario: #7a6a58;
+  --c-primario: #c8960c;
+  --c-alerta: #dc2626;
+  --c-card: #ffffff;
+  --c-borde: #e6ddce;
+  --ff-base: Arial;
   --fz-base: 16px;
 }
 
@@ -31,8 +34,8 @@ a {
 
 .site-header {
   padding: 1.5rem;
-  border-bottom: 1px solid #1f2937;
-  background: #111827;
+  border-bottom: 1px solid var(--c-borde);
+  background: var(--c-oscuro);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,7 +44,7 @@ a {
 .site-header h1 {
   margin: 0;
   font-size: 1.5rem;
-  color: #f59e0b;
+  color: var(--c-primario);
 }
 
 .main-nav ul {
@@ -53,15 +56,18 @@ a {
 }
 
 .main-nav a {
-  background: #0b1220;
+  color: var(--c-texto-claro);
+  background: rgba(255, 255, 255, 0.08);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #1f2937;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .main-nav a:hover, .main-nav a.active {
   background: var(--c-primario);
-  color: #fff;
+  color: var(--c-oscuro);
+  border-color: var(--c-primario);
+  
 }
 
 main {
@@ -73,9 +79,9 @@ main {
 }
 
 .hero {
-  background: #111827;
-  border: 1px solid #1f2937;
-  border-radius: 0.8rem;
+   background: var(--c-oscuro);
+  color: var(--c-texto-claro);
+  border: 1px solid var(--c-borde);
   padding: 3rem 2rem;
   text-align: center;
   margin-bottom: 2rem;
@@ -86,15 +92,24 @@ main {
   margin-top: 0;
 }
 
+.hero p {
+  color: var(--c-texto-claro);
+  opacity: 0.85;
+}
+
 .btn-primario {
   background: var(--c-primario);
-  color: white;
+  color: var(--c-oscuro);
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
   display: inline-block;
   font-weight: bold;
+}
+
+.subtitle {
+  color: var(--c-secundario);
 }
 
 .grid-demo {
@@ -105,7 +120,7 @@ main {
 
 .card {
   background: var(--c-card);
-  border: 1px solid #1f2937;
+  border: 1px solid var(--c-borde);
   border-radius: 0.8rem;
   overflow: hidden;
 }
@@ -139,9 +154,9 @@ main {
 .campo-control input,
 .campo-control textarea {
   flex: 1;
-  background: #111827;
+  background: var(--c-card);;
   color: var(--c-texto);
-  border: 1px solid #1f2937;
+  border: 1px solid var(--c-borde);
   border-radius: 0.5rem;
   padding: 0.6rem 0.75rem;
   font-family: inherit;
@@ -175,15 +190,15 @@ main {
 }
 
 .hint {
-  color: #10b981;
+  color: #157347;
   font-weight: bold;
 }
 
 footer {
-  background: #111827;
-  border-top: 1px solid #1f2937;
+  background: var(--c-oscuro);
+  color: var(--c-texto-claro);
+  border-top: 1px solid var(--c-borde);
   padding: 1.5rem;
   text-align: center;
   margin-top: auto;
-  color: var(--c-secundario);
 }
