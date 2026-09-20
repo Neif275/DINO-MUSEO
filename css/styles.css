@@ -202,3 +202,22 @@ footer {
   text-align: center;
   margin-top: auto;
 }
+
+.tabla-precios {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+}
+
+.tabla-precios th,
+.tabla-precios td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--c-borde);
+}
+
+.tabla-precios th {
+  color: var(--c-secundario);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
