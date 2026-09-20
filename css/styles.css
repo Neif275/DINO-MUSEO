@@ -240,10 +240,26 @@ footer {
 
 .dinosaurio-imagenes img {
   width: 100%;
-  height: 320px;
+  height: 500px;
   object-fit: cover;
   border-radius: 0.8rem;
 }
+
+.imagen-top img {
+  object-position: top;
+}
+
+.imagen-bottom img {
+  object-position: bottom;
+}
+
+.imagen-right img {
+  object-position: right;
+}
+.imagen-left img {
+  object-position: left;
+}
+
 
 .dinosaurio-info {
   background: var(--c-card);
