@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto y Reservas | DINO-MUSEO</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>DINO-MUSEO</h1>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="exposiciones.html">Exposiciones</a></li>
+        <li><a href="contacto.html" class="active">Contacto y Reservas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Reservas de Visitas y Consultas</h2>
+      <p style="color: var(--c-secundario);">Completa los datos para agendar una visita guiada o delegaciones de colegios.</p>
+
+      <form id="formContacto" novalidate>
+        
+        <div class="campo">
+          <label for="nombres">Nombres</label>
+          <div class="campo-control">
+            <input type="text" id="nombres" autocomplete="name" placeholder="Ej: María Elena">
+            <span class="icono-error">X</span>
+          </div>
+          <p class="mensaje-error"></p>
+        </div>
+
+        <div class="campo">
+          <label for="apellidos">Apellidos</label>
+          <div class="campo-control">
+            <input type="text" id="apellidos" autocomplete="family-name" placeholder="Ej: Pérez González">
+            <span class="icono-error">X</span>
+          </div>
+          <p class="mensaje-error"></p>
+        </div>
+
+        <div class="campo">
+          <label for="correo">Correo Electrónico</label>
+          <div class="campo-control">
+            <input type="text" id="correo" autocomplete="email" placeholder="nombre@dominio.cl">
+            <span class="icono-error">X</span>
+          </div>
+          <p class="mensaje-error"></p>
+        </div>
+
+        <div class="campo">
+          <label for="mensaje">Detalles de la Reserva</label>
+          <div class="campo-control">
+            <textarea id="mensaje" rows="4" placeholder="Escribe tu mensaje o cantidad de entradas..."></textarea>
+            <span class="icono-error">X</span>
+          </div>
+          <p class="mensaje-error"></p>
+        </div>
+
+        <button type="submit" class="btn-primario" id="btnEnviar">Enviar Consulta</button>
+        <p id="outContacto" class="hint"></p>
+
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>2026 DINO-MUSEO. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
