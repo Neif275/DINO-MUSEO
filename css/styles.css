@@ -309,21 +309,22 @@ footer {
     align-items: flex-start;
     gap: 1rem;
   }
-}
 
-.main-nav ul {
-  flex-wrap: wrap;
-}
 
-.hero h2 {
-  font-size: 1.8rem;
-}
+  .main-nav ul {
+    flex-wrap: wrap;
+  }
 
-.dinosaurio-detalle {
-  grid-template-columns: 1fr;
-}
+  .hero h2 {
+    font-size: 1.8rem;
+  }
 
-.dinosaurio-imagenes img {
-  height: 260px;
+  .dinosaurio-detalle {
+    grid-template-columns: 1fr;
+  }
+
+  .dinosaurio-imagenes img {
+    height: 260px;
+  }
 }
 
