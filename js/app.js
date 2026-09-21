@@ -25,7 +25,46 @@ function validarObligatorio(input) {
   return true;
 }
 
+function validarCorreo(input){
+  const campo = input.closest('.campo');
+  if (input.value.trim() === '') {
+    mostrarError(campo, 'Dato obligatorio');
+    return false
+  }
+  if (!regexCorreo.test(input.value.trim())) {
+    mostrarError(campo, 'Correo no válido');
+    return false
+  }
+  limpiarError(campo);
+  return true
+}
+
 if (formContacto) {
+
+  const inputNombres = $('#nombres');
+  const inputApellidos = $('#apellidos');
+  const inputCorreo = $('#correo');
+  const inputMensaje = $('#mensaje');
+
+  inputNombres.addEventListener('blur', () => validarObligatorio(inputNombres));
+  inputApellidos.addEventListener('blur', () => validarObligatorio(inputApellidos));
+  inputMensaje.addEventListener('blur', () => validarObligatorio(inputMensaje));
+  inputCorreo.addEventListener('blur', () => validarCorreo(inputCorreo));
+
+  inputNombres.addEventListener('input', () => {
+    if (inputNombres.closest('.campo').classList.contains('con-error')) validarObligatorio(inputNombres);
+  });
+  inputApellidos.addEventListener('input', () => {
+    if (inputApellidos.closest('.campo').classList.contains('con-error')) validarObligatorio(inputApellidos);
+  });
+  inputMensaje.addEventListener('input', () => {
+    if (inputMensaje.closest('.campo').classList.contains('con-error')) validarObligatorio(inputMensaje);
+  });
+  inputCorreo.addEventListener('input', () => {
+    if (inputCorreo.closest('.campo').classList.contains('con-error')) validarCorreo(inputCorreo);
+  });
+
+
   formContacto.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -33,11 +72,7 @@ if (formContacto) {
     const okApellidos = validarObligatorio($('#apellidos'));
     const okMensaje = validarObligatorio($('#mensaje'));
 
-    let okCorreo = validarObligatorio($('#correo'));
-    if (okCorreo && !regexCorreo.test($('#correo').value.trim())) {
-      mostrarError($('#correo').closest('.campo'), 'Correo no válido');
-      okCorreo = false;
-    }
+    const okCorreo = validarCorreo($('#correo'));
 
     if (okNombres && okApellidos && okCorreo && okMensaje) {
       outContacto.textContent = '¡Formulario enviado correctamente! Nos contactaremos a la brevedad.';
