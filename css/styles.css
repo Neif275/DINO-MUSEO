@@ -303,4 +303,27 @@ footer {
   margin-top: 2rem;
 }
 
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+.main-nav ul {
+  flex-wrap: wrap;
+}
+
+.hero h2 {
+  font-size: 1.8rem;
+}
+
+.dinosaurio-detalle {
+  grid-template-columns: 1fr;
+}
+
+.dinosaurio-imagenes img {
+  height: 260px;
+}
 
