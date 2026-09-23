@@ -108,6 +108,17 @@ main {
   font-weight: bold;
 }
 
+.btn-secundario {
+  background: var(--c-alerta);
+  color: var(--c-oscuro);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+}
+
 .subtitle {
   color: var(--c-secundario);
 }
@@ -201,6 +212,16 @@ footer {
   padding: 1.5rem;
   text-align: center;
   margin-top: auto;
+}
+
+footer a {
+  font-size: 0.8rem;
+  color: var(--c-primario);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 
@@ -302,6 +323,117 @@ footer {
 .volver-exposicion {
   margin-top: 2rem;
 }
+
+/* Vista admin */
+
+.admin-seccion { 
+  margin-top: 2.5rem; 
+} 
+
+.admin-numero { 
+  font-size: 2rem; 
+  font-weight: bold;
+   color: var(--c-primario); 
+   margin: 0.5rem 0;
+} 
+
+.admin-acciones { 
+  display: flex; 
+  justify-content: flex-end; 
+  margin: 1rem 0; 
+} 
+
+.tabla-contenedor { 
+  width: 100%;
+  overflow-x: auto; 
+  background: var(--c-card); 
+  border: 1px solid var(--c-borde);
+  border-radius: 0.8rem; 
+} 
+
+.tabla-contenedor .tabla-precios {
+  margin: 0;
+} 
+
+.btn-tabla { 
+  background: var(--c-primario);
+  color: var(--c-oscuro); 
+  border: none; 
+  border-radius: 0.4rem; 
+  padding: 0.45rem 0.75rem; 
+  cursor: pointer; 
+  font-weight: bold; 
+} 
+
+.btn-tabla:hover { 
+  opacity: 0.85; 
+} 
+
+.btn-eliminar { 
+  background: var(--c-alerta); 
+  color: white; 
+  border: none; 
+  border-radius: 0.4rem; 
+  padding: 0.45rem 0.75rem; 
+  cursor: pointer; 
+  font-weight: bold; 
+  margin-left: 0.3rem; 
+}
+
+.admin-formulario {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: var(--c-card);
+  border: 1px solid var(--c-borde);
+  border-radius: 0.8rem;
+}
+
+.admin-formulario h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.admin-formulario .campo {
+  margin-bottom: 1.2rem;
+}
+
+.admin-formulario label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+.admin-formulario input,
+.admin-formulario textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--c-borde);
+  border-radius: 0.4rem;
+  font-family: var(--ff-base);
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: white;
+}
+
+.admin-formulario input:focus,
+.admin-formulario textarea:focus {
+  outline: none;
+  border-color: var(--c-primario);
+}
+
+.admin-formulario textarea {
+  resize: vertical;
+}
+
+.admin-formulario-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+/*responsive*/
 
 @media (max-width: 640px) {
   .site-header {
