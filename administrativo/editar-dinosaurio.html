@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Dinosaurio | DINO-MUSEO</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="admin.html"><h1>DINO-MUSEO</h1></a>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="admin.html" class="active">Panel de Administración</a></li>
+      <li><a href="../index.html">Volver al sitio</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h2>Editar dinosaurio</h2>
+    <p>Modifica la información del dinosaurio seleccionado.</p>
+  </section>
+
+  <section class="admin-formulario">
+    <h2 id="tituloDinosaurio">Editar dinosaurio</h2>
+
+    <form id="formEditarDinosaurio">
+
+      <div class="campo">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre">
+        <p class="mensaje-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="familia">Familia</label>
+        <input type="text" id="familia" name="familia">
+        <p class="mensaje-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="grupo">Grupo</label>
+        <input type="text" id="grupo" name="grupo">
+        <p class="mensaje-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="periodo">Período</label>
+        <input type="text" id="periodo" name="periodo">
+        <p class="mensaje-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="antiguedad">Antigüedad</label>
+        <input type="text" id="antiguedad" name="antiguedad">
+        <p class="mensaje-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="alimentacion">Alimentación</label>
+        <input type="text" id="alimentacion" name="alimentacion">
+        <p class="mensaje-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="longitud">Longitud</label>
+        <input type="text" id="longitud" name="longitud">
+        <p class="mensaje-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="peso">Peso</label>
+        <input type="text" id="peso" name="peso">
+        <p class="mensaje-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="ubicacion">Ubicación</label>
+        <input type="text" id="ubicacion" name="ubicacion">
+        <p class="mensaje-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="sobre">Sobre el dinosaurio</label>
+        <textarea id="sobre" name="sobre" rows="5"></textarea>
+        <p class="mensaje-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="dato">¿Sabías que?</label>
+        <textarea id="dato" name="dato" rows="4"></textarea>
+        <p class="mensaje-error"></p>
+      </div>
+
+      <div class="admin-formulario-acciones">
+        <a href="admin.html" class="btn-secundario">Cancelar</a>
+        <button type="submit" class="btn-primario">Guardar cambios</button>
+      </div>
+
+      <div class="admin-desactivar">
+        <button type="button" class="btn-desactivar" id="btnDesactivar">Desactivar especie</button>
+      </div>
+      <p id="mensajeDesactivada" class="mensaje-desactivada"></p>
+
+      <p id="mensajeGuardado" class="hint"></p>
+
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>2026 DINO-MUSEO. Todos los derechos reservados.</p>
+</footer>
+
+<script type="module" src="../js/app.js"></script>
+</body>
+</html>
