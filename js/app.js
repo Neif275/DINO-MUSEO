@@ -357,7 +357,7 @@ if (formLogin) {
     const okPassword = validarObligatorio(inputPassword);
 
     if (okCorreo && okPassword) {
-      outLogin.textContent = 'Inicio de sesion exitoso.';
+      outLogin.textContent = 'Inicio de sesión exitoso!';
       outLogin.style.color = '#157347';
       
       setTimeout(() => {
