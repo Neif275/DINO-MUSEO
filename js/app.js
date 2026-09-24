@@ -243,9 +243,23 @@ if (formEditarDinosaurio) {
 			ubicacion: 'Europa',
 			sobre: 'El Iguanodon era un dinosaurio herbívoro que podía desplazarse tanto sobre dos patas como sobre cuatro.Tenía fuertes patas traseras, una cola larga y manos especiales adaptadas para diferentes funciones.',
 			dato: 'Cuando se descubrieron sus primeros fósiles, la púa de su pulgar fue confundida con un cuerno que se creía que estaba situado sobre su nariz.'
+		},
+		allosaurus: {
+			estado: 'inactivo',
+			nombre: 'Allosaurus',
+			familia: 'Allosauridae',
+			grupo: 'Terópodos',
+			periodo: 'Jurásico tardío',
+			antiguedad: 'Hace aproximadamente entre 155 y 145 millones de años',
+			alimentacion: 'Carnívoro',
+			longitud: 'Aproximadamente 9 metros',
+			peso: 'Aproximadamente 2 toneladas',
+			ubicacion: 'América del Norte y Europa',
+			sobre: 'El Allosaurus fue uno de los grandes depredadores del Jurásico. Caminaba sobre dos patas y tenía brazos fuertes con tres dedos terminados en garras.',
+			dato: 'Tenía pequeñas crestas óseas sobre los ojos, y su nombre significa "lagarto diferente".'
 		}
 	};
-	const parametros = new URLSearchParams(window.location.search); /*leer los parámetros que vienen en la URL, todo loq ue viene despues del ?*/
+	const parametros = new URLSearchParams(window.location.search); //leer los parámetros que vienen en la URL, todo loq ue viene despues del ?
 	const tipoDinosaurio = parametros.get('dinosaurio');
 	const dinosaurio = dinosaurios[tipoDinosaurio];
 	if (dinosaurio) {
@@ -261,18 +275,35 @@ if (formEditarDinosaurio) {
 		$('#ubicacion').value = dinosaurio.ubicacion;
 		$('#sobre').value = dinosaurio.sobre;
 		$('#dato').value = dinosaurio.dato;
+		if (dinosaurio.estado === 'inactivo'){
+			$('#btnDesactivar').textContent = 'Activar especie';
+			$('#btnDesactivar').classList.add('btn-activar');
+		}
 	}
 	formEditarDinosaurio.addEventListener('submit', (e) => {
 		e.preventDefault();
 		const mensajeGuardado = $('#mensajeGuardado');
 		mensajeGuardado.textContent = '¡Cambios guardados correctamente!';
+		setTimeout(() => {window.location.href = 'admin.html'; }, 1500); //espera un ratito para que se alcance a ver el mensaje de arriba y reenvia a admin.html 
 	});
 
 	const btnDesactivar = $('#btnDesactivar');
 	const mensajeDesactivada = $('#mensajeDesactivada');
 
+	// switch a falta de base de datos
 	btnDesactivar.addEventListener('click', () => {
-	mensajeDesactivada.textContent = '¡Especie desactivada correctamente!';
+		if (!dinosaurio) return;
+		if (dinosaurio.estado=== 'inactivo'){
+			mensajeDesactivada.textContent = '¡Especie activada correctamente!';
+			dinosaurio.estado = 'activo';
+			btnDesactivar.textContent = 'Desactivar especie';
+			btnDesactivar.classList.remove('btn-activar');
+		} else {
+			mensajeDesactivada.textContent = '¡Especie desactivada correctamente!';
+			dinosaurio.estado = 'inactivo';
+			btnDesactivar.textContent = 'Activar especie';
+			btnDesactivar.classList.add('btn-activar');
+		}	
 	});
 }
 
