@@ -324,3 +324,47 @@ if (nombreContacto) {
       contacto.mensaje;
   }
 }
+
+/*validacion del login*/
+
+const formLogin = $('#formLogin');
+const outLogin = $('#outLogin');
+
+if (formLogin) {
+  const inputCorreo = $('#loginCorreo');
+  const inputPassword = $('#loginPassword');
+
+  // blur
+  inputCorreo.addEventListener('blur', () => validarCorreo(inputCorreo));
+  inputPassword.addEventListener('blur', () => validarObligatorio(inputPassword));
+ 
+  inputCorreo.addEventListener('input', () => {
+    if (inputCorreo.closest('.campo').classList.contains('con-error')) {
+      validarCorreo(inputCorreo);
+    }
+  });
+
+  inputPassword.addEventListener('input', () => {
+    if (inputPassword.closest('.campo').classList.contains('con-error')) {
+      validarObligatorio(inputPassword);
+    }
+  });
+
+  formLogin.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const okCorreo = validarCorreo(inputCorreo);
+    const okPassword = validarObligatorio(inputPassword);
+
+    if (okCorreo && okPassword) {
+      outLogin.textContent = 'Inicio de sesion exitoso.';
+      outLogin.style.color = '#157347';
+      
+      setTimeout(() => {
+        window.location.href = 'admin.html';
+      }, 1500);
+    } else {
+      outLogin.textContent = '';
+    }
+  });
+}
