@@ -109,14 +109,36 @@ main {
 }
 
 .btn-secundario {
-  background: var(--c-alerta);
-  color: var(--c-oscuro);
+  background: var(--c-oscuro);
+  color: var(--c-texto-claro);
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
   display: inline-block;
   font-weight: bold;
+}
+
+.btn-desactivar {
+  background: #ffcece;
+  color: var(--c-alerta);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.btn-activar {
+  background: #d1f0dc;
+  color: #157347;
+}
+
+.admin-desactivar {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--c-borde);
 }
 
 .subtitle {
@@ -380,6 +402,24 @@ footer a:hover {
   margin-left: 0.3rem; 
 }
 
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.badge.activo {
+  background: #d1f0dc;
+  color: #157347;
+}
+
+.badge.inactivo {
+  background: #ffcece;
+  color: var(--c-alerta);
+}
+
 .admin-formulario {
   max-width: 900px;
   margin: 2.5rem auto;
@@ -431,6 +471,12 @@ footer a:hover {
   justify-content: flex-end;
   gap: 0.8rem;
   margin-top: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1.5rem;
 }
 
 /*responsive*/
