@@ -328,6 +328,16 @@ for (const badge of badges) { //recorre los badges
 	}
 }
 
+/*oculta en la exposicion los dinosaurios inactivos*/
+
+const tarjetas = document.querySelectorAll('.tarjeta-dino');
+
+for (const tarjeta of tarjetas) {
+	if (localStorage.getItem(tarjeta.id) === 'inactivo') {
+		tarjeta.style.display = 'none'; // oculta la tarjeta
+	}
+}
+
 /*info mockup contacto, no hay base de datos*/
 
 const nombreContacto = $('#nombreContacto');
