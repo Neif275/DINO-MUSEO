@@ -262,6 +262,10 @@ if (formEditarDinosaurio) {
 	const parametros = new URLSearchParams(window.location.search); //leer los parámetros que vienen en la URL, todo loq ue viene despues del ?
 	const tipoDinosaurio = parametros.get('dinosaurio');
 	const dinosaurio = dinosaurios[tipoDinosaurio];
+	const estadoGuardado = localStorage.getItem(tipoDinosaurio); //busca en la url el tipo de idnosaurio
+	if (dinosaurio && estadoGuardado) {
+		dinosaurio.estado = estadoGuardado;
+	}
 	if (dinosaurio) {
 		$('#tituloDinosaurio').textContent = 'Editar ' + dinosaurio.nombre;
 		$('#nombre').value = dinosaurio.nombre;
@@ -303,8 +307,25 @@ if (formEditarDinosaurio) {
 			dinosaurio.estado = 'inactivo';
 			btnDesactivar.textContent = 'Activar especie';
 			btnDesactivar.classList.add('btn-activar');
-		}	
+		}
+		localStorage.setItem(tipoDinosaurio, dinosaurio.estado); // guarda el estado en el navegador
 	});
+}
+
+/*actualiza badges con estados guardados en localStorage*/
+
+const badges = document.querySelectorAll('.badge'); //busca lo que tenga clase badge
+
+for (const badge of badges) { //recorre los badges 
+	const estado = localStorage.getItem(badge.id);
+	if (estado === 'activo') {
+		badge.className = 'badge activo';
+		badge.textContent = 'Activo';
+	}
+	if (estado === 'inactivo') {
+		badge.className = 'badge inactivo';
+		badge.textContent = 'Inactivo';
+	}
 }
 
 /*info mockup contacto, no hay base de datos*/
