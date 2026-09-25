@@ -284,11 +284,30 @@ if (formEditarDinosaurio) {
 			$('#btnDesactivar').classList.add('btn-activar');
 		}
 	}
+	const camposEditar = ['nombre', 'familia', 'grupo', 'periodo', 'antiguedad', 'alimentacion', 'longitud', 'peso', 'ubicacion', 'sobre', 'dato'];
+
+	camposEditar.forEach((id) => {
+		const input = $('#' + id);
+		input.addEventListener('blur', () => validarObligatorio(input));
+		input.addEventListener('input', () => {
+			if (input.closest('.campo').classList.contains('con-error')) validarObligatorio(input);
+		});
+	});
+
 	formEditarDinosaurio.addEventListener('submit', (e) => {
 		e.preventDefault();
 		const mensajeGuardado = $('#mensajeGuardado');
-		mensajeGuardado.textContent = '¡Cambios guardados correctamente!';
-		setTimeout(() => {window.location.href = 'admin.html'; }, 1500); //espera un ratito para que se alcance a ver el mensaje de arriba y reenvia a admin.html 
+
+		const resultados = camposEditar.map((id) => validarObligatorio($('#' + id)));
+		const todosValidos = resultados.every((ok) => ok);
+		if (!todosValidos) {
+			mensajeGuardado.textContent = '';
+			return;
+		}
+
+		mensajeGuardado.textContent = 'Cambios guardados correctamente';
+		setTimeout(() => {window.location.href = 'admin.html'; }, 1500);
+		
 	});
 
 	const btnDesactivar = $('#btnDesactivar');
