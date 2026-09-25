@@ -377,6 +377,10 @@ footer a:hover {
   margin: 0;
 } 
 
+.tabla-contenedor .tabla-precios{
+  min-width: 480px;
+}
+
 .btn-tabla { 
   background: var(--c-primario);
   color: var(--c-oscuro); 
@@ -504,5 +508,20 @@ footer a:hover {
   .dinosaurio-imagenes img {
     height: 260px;
   }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-formulario {
+    padding: 1.25rem;
+    margin: 1.5rem auto;
+  }
+
+  .admin-formulario-acciones {
+    flex-wrap: wrap;
+  }
+
+
 }
 
