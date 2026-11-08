@@ -1,0 +1,6 @@
+.grafico-contenedor {
+  background: var(--c-card);
+  border: 1px solid var(--c-borde);
+  border-radius: 0.8rem;
+  padding: 1rem;
+}

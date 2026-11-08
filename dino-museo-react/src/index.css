@@ -1,0 +1,530 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --c-fondo: #faf7f2;
+  --c-oscuro: #241a12;
+  --c-texto: #2c2117;
+  --c-texto-claro: #f5ede0;
+  --c-secundario: #7a6a58;
+  --c-primario: #c8960c;
+  --c-alerta: #dc2626;
+  --c-card: #ffffff;
+  --c-borde: #e6ddce;
+  --ff-base: Arial;
+  --fz-base: 16px;
+}
+
+body {
+  font-family: var(--ff-base);
+  font-size: var(--fz-base);
+  color: var(--c-texto);
+  background-color: var(--c-fondo);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--c-texto);
+  text-decoration: none;
+}
+
+.site-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--c-borde);
+  background: var(--c-oscuro);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--c-primario);
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.main-nav a {
+  color: var(--c-texto-claro);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.main-nav a:hover, .main-nav a.active {
+  background: var(--c-primario);
+  color: var(--c-oscuro);
+  border-color: var(--c-primario);
+  
+}
+
+main {
+  padding: 2rem 1rem;
+  max-width: 1100px;
+  margin-inline: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hero {
+   background: var(--c-oscuro);
+  color: var(--c-texto-claro);
+  border: 1px solid var(--c-borde);
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+.hero p {
+  color: var(--c-texto-claro);
+  opacity: 0.85;
+}
+
+.btn-primario {
+  background: var(--c-primario);
+  color: var(--c-oscuro);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.btn-secundario {
+  background: var(--c-oscuro);
+  color: var(--c-texto-claro);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.btn-desactivar {
+  background: #ffcece;
+  color: var(--c-alerta);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.btn-activar {
+  background: #d1f0dc;
+  color: #157347;
+}
+
+.admin-desactivar {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--c-borde);
+}
+
+.subtitle {
+  color: var(--c-secundario);
+}
+
+.grid-demo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--c-card);
+  border: 1px solid var(--c-borde);
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  display: block;
+  color: var(--c-secundario);
+  margin-bottom: 0.3rem;
+}
+
+.campo-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.campo-control input,
+.campo-control textarea {
+  flex: 1;
+  background: var(--c-card);;
+  color: var(--c-texto);
+  border: 1px solid var(--c-borde);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  font-family: inherit;
+}
+
+.campo.con-error input,
+.campo.con-error textarea {
+  border-color: var(--c-alerta);
+}
+
+.icono-error {
+  color: var(--c-alerta);
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: none;
+}
+
+.campo.con-error .icono-error {
+  display: block;
+}
+
+.mensaje-error {
+  color: var(--c-alerta);
+  font-size: 0.85rem;
+  margin: 0.25rem 0 0;
+  display: none;
+}
+
+.campo.con-error .mensaje-error {
+  display: block;
+}
+
+.hint {
+  color: #157347;
+  font-weight: bold;
+}
+
+footer {
+  background: var(--c-oscuro);
+  color: var(--c-texto-claro);
+  border-top: 1px solid var(--c-borde);
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+footer a {
+  font-size: 0.8rem;
+  color: var(--c-primario);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+.tabla-precios {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+}
+
+.tabla-precios th,
+.tabla-precios td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--c-borde);
+}
+
+.tabla-precios th {
+  color: var(--c-secundario);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+/* Ficha individual para cada dino */
+
+.dinosaurio-detalle {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.dinosaurio-imagenes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dinosaurio-imagenes img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+
+.imagen-top img {
+  object-position: top;
+}
+
+.imagen-bottom img {
+  object-position: bottom;
+}
+
+.imagen-right img {
+  object-position: right;
+}
+.imagen-left img {
+  object-position: left;
+}
+
+
+.dinosaurio-info {
+  background: var(--c-card);
+  border: 1px solid var(--c-borde);
+  border-radius: 0.8rem;
+  padding: 2rem;
+}
+
+.dinosaurio-info h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: var(--c-oscuro);
+}
+
+.dinosaurio-info h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.dinosaurio-info p {
+  line-height: 1.6;
+}
+
+.dinosaurio-datos {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.dinosaurio-datos li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--c-borde);
+}
+
+.dinosaurio-datos li:last-child {
+  border-bottom: none;
+}
+
+.volver-exposicion {
+  margin-top: 2rem;
+}
+
+/* Vista admin */
+
+.admin-seccion { 
+  margin-top: 2.5rem; 
+} 
+
+.admin-numero { 
+  font-size: 2rem; 
+  font-weight: bold;
+   color: var(--c-primario); 
+   margin: 0.5rem 0;
+} 
+
+.admin-acciones { 
+  display: flex; 
+  justify-content: flex-end; 
+  margin: 1rem 0; 
+} 
+
+.tabla-contenedor { 
+  width: 100%;
+  overflow-x: auto; 
+  background: var(--c-card); 
+  border: 1px solid var(--c-borde);
+  border-radius: 0.8rem; 
+} 
+
+.tabla-contenedor .tabla-precios {
+  margin: 0;
+} 
+
+.tabla-contenedor .tabla-precios{
+  min-width: 480px;
+}
+
+.btn-tabla { 
+  background: var(--c-primario);
+  color: var(--c-oscuro); 
+  border: none; 
+  border-radius: 0.4rem; 
+  padding: 0.45rem 0.75rem; 
+  cursor: pointer; 
+  font-weight: bold; 
+} 
+
+.btn-tabla:hover { 
+  opacity: 0.85; 
+} 
+
+.btn-eliminar { 
+  background: var(--c-alerta); 
+  color: white; 
+  border: none; 
+  border-radius: 0.4rem; 
+  padding: 0.45rem 0.75rem; 
+  cursor: pointer; 
+  font-weight: bold; 
+  margin-left: 0.3rem; 
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.badge.activo {
+  background: #d1f0dc;
+  color: #157347;
+}
+
+.badge.inactivo {
+  background: #ffcece;
+  color: var(--c-alerta);
+}
+
+.admin-formulario {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: var(--c-card);
+  border: 1px solid var(--c-borde);
+  border-radius: 0.8rem;
+}
+
+.admin-formulario h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.admin-formulario .campo {
+  margin-bottom: 1.2rem;
+}
+
+.admin-formulario label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+.admin-formulario input,
+.admin-formulario textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--c-borde);
+  border-radius: 0.4rem;
+  font-family: var(--ff-base);
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: white;
+}
+
+.admin-formulario input:focus,
+.admin-formulario textarea:focus {
+  outline: none;
+  border-color: var(--c-primario);
+}
+
+.admin-formulario textarea {
+  resize: vertical;
+}
+
+.admin-formulario-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1.5rem;
+}
+
+/*responsive*/
+
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+
+  .main-nav ul {
+    flex-wrap: wrap;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .dinosaurio-detalle {
+    grid-template-columns: 1fr;
+  }
+
+  .dinosaurio-imagenes img {
+    height: 260px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-formulario {
+    padding: 1.25rem;
+    margin: 1.5rem auto;
+  }
+
+  .admin-formulario-acciones {
+    flex-wrap: wrap;
+  }
+
+
+}
+
+#root {
+  display: contents;
+}
