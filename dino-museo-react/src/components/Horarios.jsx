@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FilaTarifa from "./FilaTarifa";
 
 const tarifas = [
     { id: 1, categoria: 'General (A partir de los 15 años)', precio: '$10.000' },
@@ -40,10 +41,7 @@ function Horarios()
                                 </thead>
                                 <tbody>
                                     {tarifas.map((row) => (
-                                        <tr key={row.id}>
-                                            <td>{row.categoria}</td>
-                                            <td>{row.precio}</td>
-                                        </tr>
+                                       <FilaTarifa key={row.id} categoria={row.categoria} precio={row.precio}/>
                                     ))}
                                 </tbody>
                             </table>
