@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Inicio()
 {
+    const [mostrarVideo, setMostrarVideo] = useState(true);
+
     return(
         <>
             <section className="hero">
@@ -13,14 +16,19 @@ function Inicio()
             <section style={{ background: 'var(--c-card)', padding: '1.5rem', borderRadius: '.8rem', border: '1px solid var(--c-borde)', textAlign: 'center' }}>
                 <h2>Recorrido Virtual</h2>
                 <p style={{ color: 'var(--c-secundario)' }}>Observa un adelanto de lo que es nuestra sala principal.</p>
-                <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '.5rem' }}>
-                    <iframe
-                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-                        src="https://www.youtube.com/embed/fdcEKPS6tOQ"
-                        title="Sala principal del museo"
-                        allowFullScreen>
-                    </iframe>
-                </div>
+                <button type="button" className="btn-secundario" onClick={() => setMostrarVideo(!mostrarVideo)}>
+                    {mostrarVideo ? 'Ocultar recorrido' : 'Mostrar recorrido'}
+ </button>
+                {mostrarVideo && (
+                    <div className="ratio ratio-16x9 mt-3" style={{ borderRadius: '.5rem', overflow: 'hidden' }}>
+                        <iframe
+                            src="https://www.youtube.com/embed/fdcEKPS6tOQ"
+                            title="Sala principal del museo"
+                            style={{ border: 0 }}
+                            allowFullScreen>
+                        </iframe>
+                    </div>
+                )}
             </section>
         </>
     );
