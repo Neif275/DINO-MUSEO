@@ -4,3 +4,69 @@
   border-radius: 0.8rem;
   padding: 1rem;
 }
+
+/* Boton "Cerrar sesion" con la misma forma que los links del menu */
+.nav-boton {
+  color: var(--c-texto-claro);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font: inherit;
+  cursor: pointer;
+}
+
+.nav-boton:hover {
+  background: var(--c-primario);
+  color: var(--c-oscuro);
+  border-color: var(--c-primario);
+}
+
+/* Mensaje de error que devuelve el backend */
+.error-api {
+  color: var(--c-alerta);
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.link-texto {
+  color: var(--c-primario);
+  font-weight: bold;
+}
+
+/* Tienda y panel de entradas/boletas */
+.tienda-cantidad {
+  width: 5rem;
+  padding: 0.4rem;
+  border: 1px solid var(--c-borde);
+  border-radius: 0.4rem;
+}
+
+.tienda-resumen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--c-card);
+  border: 1px solid var(--c-borde);
+  border-radius: 0.8rem;
+}
+
+.tienda-total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--c-primario);
+}
+
+.acciones-tabla {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.acciones-tabla .btn-eliminar {
+  margin-left: 0;
+}
