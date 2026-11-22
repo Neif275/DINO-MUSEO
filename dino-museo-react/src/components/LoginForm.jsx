@@ -1,14 +1,29 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Despues del login cada rol va a su pagina
+const INICIO_POR_ROL = { ADMIN: '/admin', VENDEDOR: '/admin', CLIENTE: '/tienda' };
+
+// Si venia de una pagina protegida, vuelve a ella solo si su rol tiene permiso
+function puedeEntrar(rol, ruta) {
+    if (ruta.startsWith('/admin')) return rol !== 'CLIENTE';
+    if (ruta === '/tienda') return rol !== 'VENDEDOR';
+    return true;
+}
+
 function LoginForm() {
     const navigate = useNavigate();
+    const location = useLocation();
+    const { login } = useAuth();
     const [values, setValues] = useState({ correo: '', password: '' });
     const [touched, setTouched] = useState({ correo: false, password: false });
     const [submitted, setSubmitted] = useState(false);
     const [mensaje, setMensaje] = useState('');
+    const [errorApi, setErrorApi] = useState('');
+    const [enviando, setEnviando] = useState(false);
 
     const errors = {
         correo: values.correo.trim() === ''
@@ -31,22 +46,33 @@ function LoginForm() {
         setTouched((t) => ({ ...t, [name]: true }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setSubmitted(true);
-        if (isValid('correo') && isValid('password')) {
+        setErrorApi('');
+        setMensaje('');
+        if (!isValid('correo') || !isValid('password')) return;
+
+        setEnviando(true);
+        try {
+            // el backend valida la contraseña y responde con el token JWT y el rol
+            const usuario = await login(values.correo.trim(), values.password);
             setMensaje('Inicio de sesión exitoso!');
-            setTimeout(() => navigate('/admin'), 1500);
-        } else {
-            setMensaje('');
+            const desde = location.state?.desde;
+            const destino = desde && puedeEntrar(usuario.rol, desde) ? desde : INICIO_POR_ROL[usuario.rol];
+            setTimeout(() => navigate(destino, { replace: true }), 800);
+        } catch (error) {
+            setErrorApi(error.message);
+        } finally {
+            setEnviando(false);
         }
     };
 
     return (
         <section className="admin-formulario" style={{ maxWidth: '450px' }}>
-            <h2>Iniciar sesión como administrador</h2>
+            <h2>Iniciar sesión</h2>
             <p style={{ color: 'var(--c-secundario)', marginBottom: '1.5rem' }}>
-                Ingresa tu usuario y contraseña para acceder al panel administrativo.
+                Ingresa con tu cuenta para comprar entradas o acceder al panel administrativo.
             </p>
 
             <form id="formLogin" onSubmit={handleSubmit} noValidate>
@@ -87,11 +113,18 @@ function LoginForm() {
                 </div>
 
                 <div className="admin-formulario-acciones" style={{ justifyContent: 'flex-start', marginTop: '1rem' }}>
-                    <button type="submit" className="btn-primario" id="btnIngresar">Ingresar</button>
+                    <button type="submit" className="btn-primario" id="btnIngresar" disabled={enviando}>
+                        {enviando ? 'Ingresando...' : 'Ingresar'}
+                    </button>
                 </div>
 
                 <p id="outLogin" className="hint" style={{ marginTop: '1rem' }}>{mensaje}</p>
+                {errorApi && <p className="error-api">{errorApi}</p>}
             </form>
+
+            <p style={{ marginTop: '1rem' }}>
+                ¿No tienes cuenta? <Link to="/registro" className="link-texto">Regístrate aquí</Link>
+            </p>
         </section>
     );
 }
